@@ -1,4 +1,4 @@
 ANNPlayground
 =============
 
-Artificila Neural Network Exercises and test (mostly Matlab 2010 Ed. code)
+Artificila Neural Network Exercises and tests (mostly Matlab 2010 Ed. code)
