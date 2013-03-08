@@ -68,7 +68,22 @@ end
 
 figure;
 %plot RMSDiff
-plot(1:size(threes,2), RMSDiff,'*-');
+hold on;
+plot(1:size(threes,2), RMSDiff,'r*-');
 xlabel('Dims');
 ylabel('Error');
-title('Root mean square error after PCA with varying dimensionality');
+title('RMS on PCA (r) vs CumSum of EigenValues (b)');
+
+
+%Lets compute the cumulative sum of the eigenvalues and try to plot it
+%agaisnt the error
+
+CovMat = cov(threes);
+
+[EigVectorsTot, EigValuesMatTot] = eig(CovMat);
+
+cumSumEigVals = cumsum(diag(EigValuesMatTot));
+
+plot(1:size(threes,2), cumSumEigVals/max(cumSumEigVals),'b*-');
+
+
