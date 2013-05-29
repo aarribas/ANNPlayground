@@ -1,4 +1,4 @@
-function [error, compressedMat] = pca_k_dims(InputMatrix,Kdims)
+function [error, compressedMat] = pca_k_dims(InputMatrix,maxfrac)
 
 %InputMatrix should be made of observations (rows) and variables (columns)
 
@@ -6,7 +6,7 @@ p = InputMatrix';
 
 [y,ps1] = mapstd(p);
 
-[z, ps2] = processpca(y,1-Kdims/size(p,1));
+[z, ps2] = processpca(y,maxfrac);
 
 compressedMat = z;
 
